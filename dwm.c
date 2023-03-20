@@ -220,6 +220,7 @@ static void resizemouse(const Arg *arg);
 static void resizerequest(XEvent *e);
 static void restack(Monitor *m);
 static void run(void);
+static void runAutostart(void);
 static void scan(void);
 static int sendevent(Window w, Atom proto, int m, long d0, long d1, long d2, long d3, long d4);
 static void sendmon(Client *c, Monitor *m);
@@ -914,10 +915,11 @@ drawbar(Monitor *m)
 		stw = getsystraywidth();
 
 	/* draw status first so it can be overdrawn by tags later */
-	if (m == selmon) { /* status is only drawn on selected monitor */
+	/* 将statusbar 放在tray相同的monitor上，既可以固定，也可以指定某一个*/
+	if (m == systraytomon(m)) { /* status is only drawn on selected monitor */
 		tw = m->ww - drawstatusbar(m, bh, stext);
 	}
-
+	
 	resizebarwin(m);
 	for (c = m->clients; c; c = c->next) {
 		occ |= c->tags;
@@ -1668,6 +1670,11 @@ run(void)
 	while (running && !XNextEvent(dpy, &ev))
 		if (handler[ev.type])
 			handler[ev.type](&ev); /* call handler */
+}
+
+void
+runAutostart(void) {
+	system("cd ~/.dwm/scripts; ./autostart.sh &");
 }
 
 void
@@ -2619,6 +2626,7 @@ main(int argc, char *argv[])
 		die("pledge");
 #endif /* __OpenBSD__ */
 	scan();
+	runAutostart();
 	run();
 	cleanup();
 	XCloseDisplay(dpy);
