@@ -101,6 +101,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask, 			XK_r,      quit,           {1} }, 
 	{ ALTKEY,                       XK_f,      spawn,          SHCMD("~/.dwm/scripts/app.sh firefox") },
 	{ ALTKEY,                       XK_g,      spawn,          SHCMD("~/.dwm/scripts/app.sh chrome") },
 	{ ALTKEY,                       XK_c,      spawn,          SHCMD("~/.dwm/scripts/app.sh chromium") },

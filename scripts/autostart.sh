@@ -4,6 +4,6 @@ if [ $"$monitors" == 2 ]; then
 fi
 ./wallpaper.sh
 ./bar.sh &
-fcitx5 -d &
-cfw &
-picom &
+pgrep -x fcitx5 || fcitx5 -d &
+pgrep -x cfw || cfw &
+pgrep -x picom || picom &
