@@ -18,7 +18,7 @@ darkblue=#668ee3
 cpu() {
   cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
 
-  printf "^c$black^ ^b$green^ CPU"
+  printf "^c$black^ ^b$green^ "
   printf "^c$white^ ^b$grey^ $cpu_val"
 }
 

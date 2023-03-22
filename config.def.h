@@ -57,7 +57,8 @@ static const Layout layouts[] = {
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, 
+
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -70,7 +71,7 @@ static const char *roficmd[]  = { "rofi", "-show", "drun"};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_space,      spawn,          {.v = roficmd } },
+	{ MODKEY,                       XK_space,  spawn,          {.v = roficmd } },
 	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -88,10 +89,12 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_comma,  focusnthmon,    {.i = 2 } },				/*focus 左侧竖屏显示器*/
+	{ MODKEY,                       XK_period, focusnthmon,    {.i = 0 } },				/*focus 中间显示器*/
+	{ MODKEY,                       XK_slash,  focusnthmon,    {.i = 1 } },				/*focus 右侧显示器*/
+	{ MODKEY|ShiftMask,             XK_comma,  tagnthmon,      {.i = 2 } },				/*移动窗口 到左侧显示器*/
+	{ MODKEY|ShiftMask,             XK_period, tagnthmon,      {.i = 0 } },				/*移动窗口 到中间显示器*/
+	{ MODKEY|ShiftMask,             XK_slash,  tagnthmon,      {.i = 1 } },				/*移动窗口 到右侧显示器*/
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
@@ -106,13 +109,14 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ShiftMask, 			XK_r,      quit,           {1} }, 
-	{ControlMask|ShiftMask,			XK_l,	   spawn,		   SHCMD("~/.dwm/scripts/lock.sh") },
+	{ControlMask|ALTKEY,			XK_l,	   spawn,		   SHCMD("~/.dwm/scripts/lock.sh") },
 	{ ALTKEY,                       XK_f,      spawn,          SHCMD("~/.dwm/scripts/app.sh firefox") },
 	{ ALTKEY,                       XK_g,      spawn,          SHCMD("~/.dwm/scripts/app.sh chrome") },
 	{ ALTKEY,                       XK_c,      spawn,          SHCMD("~/.dwm/scripts/app.sh chromium") },
 	{ ALTKEY,                       XK_s,      spawn,          SHCMD("~/.dwm/scripts/app.sh flameshot") },
 	{ ALTKEY,                       XK_o,      spawn,          SHCMD("~/.dwm/scripts/app.sh obsidian") },
 	{ ALTKEY,                       XK_d,      spawn,          SHCMD("~/.dwm/scripts/app.sh dolphin") },
+	{ ALTKEY,                       XK_v,      spawn,          SHCMD("~/.dwm/scripts/app.sh vscode") },
 	{ ALTKEY,                       XK_p,      spawn,          SHCMD("~/.dwm/scripts/wallpaper.sh") },
 
 };

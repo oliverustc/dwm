@@ -15,6 +15,8 @@ case $command in
     flameshot gui -c -p ~/Pictures/screenshots ;;
     "dolphin")
     dolphin ~ ;;
+    "vscode")
+    code ;;
     *)
     echo "err !! $command" >>  /tmp/dwm.log
     ;;
