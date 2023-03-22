@@ -46,7 +46,7 @@ brightness() {
 
 mem() {
   printf "^c$blue^^b$black^  "
-  printf "^c$blue^ $(free -h | awk '/^内存/ { print $3 }' | sed s/i//g)"
+  printf "^c$blue^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
 }
 
 wlan() {
