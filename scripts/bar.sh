@@ -18,7 +18,7 @@ darkblue=#668ee3
 cpu() {
   cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
 
-  printf "^c$black^ ^b$green^ "
+  printf "^c$black^ ^b$green^ "
   printf "^c$white^ ^b$grey^ $cpu_val"
 }
 
@@ -45,8 +45,8 @@ brightness() {
 }
 
 mem() {
-  printf "^c$blue^^b$black^  "
-  printf "^c$blue^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
+  printf "^c$blue^^b$black^  "
+  printf "^c$blue^ $(free -h | awk '/^内存/ { print $3 }' | sed s/i//g)"
 }
 
 wlan() {
@@ -57,7 +57,7 @@ wlan() {
 }
 
 clock() {
-	printf "^c$black^ ^b$darkblue^ 󱑆 "
+	printf "^c$black^ ^b$darkblue^  "
 	printf "^c$black^^b$blue^ $(date '+%H:%M')  "
 }
 
