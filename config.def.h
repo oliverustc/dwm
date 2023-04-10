@@ -105,6 +105,9 @@ static const Key keys[] = {
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_comma, focusnthmon, {.i = 2}},  /*focus 左侧竖屏显示器*/
+    {MODKEY|ControlMask, XK_comma, spawn, SHCMD("xdotool mousemove 720 1280")},
+    {MODKEY|ControlMask, XK_period, spawn, SHCMD("xdotool mousemove 3360 1040")},
+    {MODKEY|ControlMask, XK_slash, spawn, SHCMD("xdotool mousemove 7200 1040")},
     {MODKEY, XK_period, focusnthmon, {.i = 0}}, /*focus 中间显示器*/
     {MODKEY, XK_slash, focusnthmon, {.i = 1}},  /*focus 右侧显示器*/
     {MODKEY | ShiftMask,
@@ -138,6 +141,7 @@ static const Key keys[] = {
     {ALTKEY, XK_p, spawn, SHCMD("~/.dwm/scripts/wallpaper.sh")},
     {ALTKEY|ShiftMask, XK_p, spawn, SHCMD("bash ~/.dwm/scripts/poems.sh")},
     {ALTKEY, XK_m, spawn, SHCMD("alacritty -e btop")},
+    {MODKEY, XK_w, spawn, SHCMD("~/.dwm/scripts/rdesktop.sh")},
 
 };
 
