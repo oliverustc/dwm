@@ -10,10 +10,13 @@ function setWallpaper() {
   feh --bg-fill $wallpapers $virtical_wallpaper
 }
 
-delay="30m"
+delay=$*
 
-while [[ true ]]; do
-  setWallpaper 
-  sleep $delay
-done
-
+if [ -z $delay ]; then
+  setWallpaper
+else 
+  while [[ true ]]; do
+    setWallpaper 
+    sleep $delay
+  done
+fi 

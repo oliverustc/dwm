@@ -1,7 +1,7 @@
 autorandr -l main
 
 pgrep wallpaper.sh && killall wallpaper.sh 
-./wallpaper.sh &
+./wallpaper.sh "30m" &
 
 pgrep -x bar.sh && killall bar.sh 
 ./bar.sh & 
