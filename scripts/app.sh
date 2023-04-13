@@ -6,7 +6,8 @@ case $command in
     "firefox")
     firefox ;;
     "chrome")
-    google-chrome-stable --proxy-server="127.0.0.1:7890" ;;
+    url=$2
+    google-chrome-stable --proxy-server="127.0.0.1:7890" $url ;;
     "chromium")
     chromium --proxy-server="127.0.0.1:7890" ;;
     "obsidian")

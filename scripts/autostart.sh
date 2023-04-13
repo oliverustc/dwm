@@ -10,4 +10,6 @@ pgrep -x fcitx5 || fcitx5 -d &
 
 pgrep -x picom || picom --config ~/.config/picom/picom.conf &
 
+pgrep -x dunst || dunst & 
+
 bash ~/.dwm/scripts/poems.sh 

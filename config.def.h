@@ -129,8 +129,10 @@ static const Key keys[] = {
     {ALTKEY,                      XK_m,                 spawn,           SHCMD("alacritty -e btop")},
     {ALTKEY,                      XK_p,                 spawn,           SHCMD("~/.dwm/scripts/wallpaper.sh")},
     {ALTKEY|ShiftMask,            XK_p,                 spawn,           SHCMD("~/.dwm/scripts/poems.sh")},
-    {MODKEY,                      XK_w,                 spawn,           SHCMD("~/.dwm/scripts/rdesktop.sh laptop"),
+    {MODKEY,                      XK_w,                 spawn,           SHCMD("~/.dwm/scripts/rdesktop.sh laptop")},
     {MODKEY|ShiftMask,            XK_w,                 spawn,           SHCMD("~/.dwm/scripts/rdesktop.sh desktop")},
+    {ALTKEY|ControlMask,          XK_s,                 spawn,           SHCMD("~/.dwm/scripts/app.sh chrome scholar.google.com.hk")},
+    {ALTKEY|ControlMask,          XK_t,                 spawn,           SHCMD("~/.dwm/scripts/app.sh chrome www.deepl.com/translator")},
     TAGKEYS(XK_1, 0) 
     TAGKEYS(XK_2, 1) 
     TAGKEYS(XK_3, 2) 
