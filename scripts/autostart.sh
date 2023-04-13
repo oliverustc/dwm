@@ -8,7 +8,7 @@ pgrep -x bar.sh && killall bar.sh
 
 pgrep -x fcitx5 || fcitx5 -d &
 
-pgrep -x picom || picom --config ~/.config/picom/picom.conf &
+pgrep -x picom || picom --experimental-backends  --config ~/.config/picom/picom.conf &
 
 pgrep -x dunst || dunst & 
 
